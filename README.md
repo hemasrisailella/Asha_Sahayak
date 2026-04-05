@@ -14,7 +14,9 @@
 
 **Built for the [BharatBricks Hackathon](https://bharatbricks.org) with Databricks**
 
-### 🎬 [Watch the Demo Presentation](https://drive.google.com/file/d/1eNbwSAk4BDAAnUoTzonG4nUn3B5CrBD0/view?usp=sharing)
+### 🎬 [Watch the Demo Presentation](https://youtu.be/4LIVb--1QHM)
+
+![Sample View](docs/assets/sampleview.jpeg)
 
 [Quick Start](#-quick-start) · [Architecture](#-architecture) · [Features](#-key-features) · [Demo](#-demo-scenarios) · [API Docs](docs/api_spec.md) · [Deployment](docs/deployment.md)
 
@@ -63,52 +65,11 @@ India has over **1 million ASHA workers** serving as the first point of contact 
 
 ## 🏗️ Architecture
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                    Presentation Layer                      │
-│  ┌────────────────────┐    ┌───────────────────────────┐  │
-│  │   Gradio UI        │    │   React SPA (Optional)    │  │
-│  │   (Mobile-first)   │    │   React 19 + Vite + TW    │  │
-│  └────────┬───────────┘    └─────────┬─────────────────┘  │
-│           │         FastAPI REST API  │                    │
-└───────────┼───────────────────────────┼────────────────────┘
-            │                           │
-┌───────────┴───────────────────────────┴────────────────────┐
-│                    Service Layer (9 Services)               │
-│  ┌──────────┐ ┌──────────────┐ ┌──────────┐ ┌──────────┐  │
-│  │ Patient  │ │ Conversation │ │ Document │ │Dashboard │  │
-│  │ Service  │ │   Service    │ │ Service  │ │ Service  │  │
-│  ├──────────┤ ├──────────────┤ ├──────────┤ ├──────────┤  │
-│  │  Risk    │ │  Retrieval   │ │  Ration  │ │ Schedule │  │
-│  │ Service  │ │   Service    │ │ Service  │ │ Service  │  │
-│  ├──────────┤ └──────────────┘ └──────────┘ └──────────┘  │
-│  │  Audit   │                                              │
-│  │ Service  │                                              │
-│  └──────────┘                                              │
-└───────────────────────┬────────────────────────────────────┘
-                        │
-┌───────────────────────┴────────────────────────────────────┐
-│              AI / ML Provider Layer (5 Providers)           │
-│  ┌──────────┐ ┌───────────┐ ┌──────────┐ ┌────────────┐   │
-│  │Reasoning │ │Translation│ │  Speech  │ │  Vision/   │   │
-│  │(Sarvam-m)│ │ (Sarvam)  │ │(saaras)  │ │  OCR       │   │
-│  └──────────┘ └───────────┘ └──────────┘ └────────────┘   │
-│  ┌──────────────────────┐                                  │
-│  │  Embeddings          │  Each provider: ABC interface    │
-│  │  (multilingual-e5)   │  → Mock / Sarvam / Databricks   │
-│  └──────────────────────┘                                  │
-└───────────────────────┬────────────────────────────────────┘
-                        │
-┌───────────────────────┴────────────────────────────────────┐
-│                  Data & Storage Layer                        │
-│  ┌────────────┐ ┌─────────────┐ ┌──────────────────────┐   │
-│  │ Delta Lake │ │   Volumes   │ │   Vector Search      │   │
-│  │ (5 schemas,│ │ (PDFs, imgs,│ │  (guidelines +       │   │
-│  │ 20+ tables)│ │  audio)     │ │   patient memory)    │   │
-│  └────────────┘ └─────────────┘ └──────────────────────┘   │
-│  Local: SQLite + FAISS │ Production: Databricks Lakehouse   │
-└─────────────────────────────────────────────────────────────┘
-```
+<div align="center">
+
+![Architecture Diagram](docs/assets/architecture.png)
+
+</div>
 
 See [docs/architecture.md](docs/architecture.md) for detailed architectural decisions, data flows, and component diagrams.
 
