@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏥 ASHA Sahayak (आशा सहायक)
+# 🏥 ASHA Sahayaka (आशा सहायक)
 
 ### AI-Powered Multilingual Maternal Health Assistant for India's ASHA Workers
 
@@ -14,7 +14,7 @@
 
 **Built for the [BharatBricks Hackathon](https://bharatbricks.org) with Databricks**
 
-### 🎬 [Watch the Demo Presentation](https://youtu.be/4LIVb--1QHM)
+### 🎬 [Watch the Demo Video](https://youtu.be/4LIVb--1QHM)
 
 ![Sample View](docs/assets/sampleview.jpeg)
 
